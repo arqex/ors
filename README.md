@@ -1,6 +1,8 @@
-# ORS - Observable regenerating store [![npm version](https://badge.fury.io/js/ors.svg)](https://www.npmjs.com/package/ors) [![Build Status](https://secure.travis-ci.org/arqex/ors.svg)](https://secure.travis-ci.org/arqex/ors) [![Coverage Status](https://coveralls.io/repos/github/arqex/ors/badge.svg?branch=master)](https://coveralls.io/github/arqex/ors?branch=master)
+# ORS - Observable regenerating store
 
-The simpler way of manage the state of your app.
+[![npm version](https://badge.fury.io/js/ors.svg)](https://www.npmjs.com/package/ors) [![Build Status](https://secure.travis-ci.org/arqex/ors.svg)](https://secure.travis-ci.org/arqex/ors) [![Coverage Status](https://coveralls.io/repos/github/arqex/ors/badge.svg?branch=master)](https://coveralls.io/github/arqex/ors?branch=master)
+
+The Observable Regenerating Store is a data structure that regenerates the whole branch and emit events when a leaf is updated.
 
 ## Usage
 To be documented...

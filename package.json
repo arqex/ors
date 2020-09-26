@@ -1,8 +1,8 @@
 {
-  "name": "onstate",
-  "version": "1.0.0",
+  "name": "ors",
+  "version": "0.8.0",
   "description": "The eventful state holder",
-  "main": "src/onState.js",
+  "main": "src/ors.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/passpill-io/onState.git"
+    "url": "git+https://github.com/passpill-io/ors.git"
   },
   "keywords": [
     "state-management",
@@ -25,9 +25,9 @@
   "author": "Javier Marquez - javi@arqex.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/passpill-io/onState/issues"
+    "url": "https://github.com/passpill-io/ors/issues"
   },
-  "homepage": "https://github.com/passpill-io/onState",
+  "homepage": "https://github.com/passpill-io/ors",
   "devDependencies": {
     "coveralls": "^3.1.0",
     "jest": "^26.4.2",
@@ -36,7 +36,7 @@
   },
   "nyc": {
     "include": [
-      "src/onState.js"
+      "src/ors.js"
     ]
   },
   "dependencies": {}

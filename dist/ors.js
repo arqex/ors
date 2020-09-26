@@ -1,4 +1,19 @@
-// ----------
+/* ors v0.8.0 (2020-9-26)
+ * https://github.com/passpill-io/ors
+ * By Javier Marquez - javi@arqex.com
+ * License: MIT
+ */
+ (function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['exports', 'ors'], factory);
+	} else if (typeof exports === 'object') {
+		module.exports = factory();
+	} else {
+		root.ors = factory();
+	}
+}(this, function () {
+	'use strict';
+	// ----------
 // State queues
 // ----------
 var queue = [];
@@ -23,7 +38,34 @@ function ors(data, options) {
   return root;
 }
 
-var activateQueue = require('./activateQueue')(flushTimers);
+
+	var activateQueue;
+	if( typeof window !== 'undefined' && window.setImmediate ){
+		let immId = false;
+		activateQueue = function(){
+			if( !immId ){
+				immId = window.setImmediate( function() {
+					immId = false;
+					flushTimers();
+				});
+			}
+		}
+	}
+	else if (typeof window !== 'undefined' && window.addEventListener ) {
+		let o = window.origin;
+		if (!o || o === 'null') o = '*';
+
+		window.addEventListener('message', function (e) {
+			e.data === 'now' && flushTimers();
+		});
+		activateQueue = window.postMessage.bind(window, 'now', o);
+	}
+	else {
+		activateQueue = function () {
+			process.nextTick(flushTimers);
+		}
+	}
+	
 
 var waitFor = function( clbk ){
   queue.push(clbk);
@@ -300,5 +342,6 @@ ors.warn = function(msg) {
   console.warn('ors WARNING: ' + msg);
 }
 
-/* EXPORT - Do not remove or modify this comment */
-module.exports = ors;
+
+	return ors;
+}));

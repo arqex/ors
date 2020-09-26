@@ -1,3 +1,6 @@
+**v0.8.0**
+* Accept copying the same nodes to multiple places of the store
+
 **v0.7.4**
 * Fix bug on nextTick
 

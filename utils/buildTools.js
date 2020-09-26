@@ -5,7 +5,7 @@ var ugly = require('uglify-es');
 var rimraf = require('rimraf');
 
 var pack = require('../package.json');
-var moduleName = 'onState';
+var moduleName = 'ors';
 
 const BUILD_PATH = Path.join(__dirname, '../dist') ;
 
@@ -22,7 +22,7 @@ module.exports = {
 		rimraf(BUILD_PATH, () => {
 			fs.mkdirSync(BUILD_PATH);
 
-			var content = this.read( '../src/onState.js' );
+			var content = this.read( '../src/ors.js' );
 			var activateQueue = this.read('../src/activateQueue.js')
 				.split('/* START */')[1]
 				.split('/* END */')[0]
@@ -39,8 +39,8 @@ module.exports = {
 				console.error( minified.error );
 			}
 
-			this.write('onstate.js', this.addComment(umd));
-			this.write('onstate.min.js',
+			this.write('ors.js', this.addComment(umd));
+			this.write('ors.min.js',
 				this.addComment(minified.code, '/* %%name%% %%version%% - %%homepage%% */\n%%contents%%'));
 
 			console.log('Done!');
