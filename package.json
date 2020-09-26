@@ -1,5 +1,5 @@
 {
-  "name": "ors",
+  "name": "@arqex/ors",
   "version": "0.8.0",
   "description": "The eventful state holder",
   "main": "src/ors.js",
@@ -15,29 +15,26 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/passpill-io/ors.git"
+    "url": "git+https://github.com/arqex/ors.git"
   },
   "keywords": [
     "state-management",
     "react",
-    "event"
+    "events",
+    "immutable",
+    "observable"
   ],
   "author": "Javier Marquez - javi@arqex.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/passpill-io/ors/issues"
+    "url": "https://github.com/arqex/ors/issues"
   },
-  "homepage": "https://github.com/passpill-io/ors",
+  "homepage": "https://github.com/arqex/ors",
   "devDependencies": {
     "coveralls": "^3.1.0",
     "jest": "^26.4.2",
     "rimraf": "^3.0.2",
     "uglify-es": "^3.3.9"
-  },
-  "nyc": {
-    "include": [
-      "src/ors.js"
-    ]
   },
   "dependencies": {}
 }

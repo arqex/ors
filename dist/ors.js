@@ -1,5 +1,5 @@
-/* ors v0.8.0 (2020-9-26)
- * https://github.com/passpill-io/ors
+/* @arqex/ors v0.8.0 (2020-9-26)
+ * https://github.com/arqex/ors
  * By Javier Marquez - javi@arqex.com
  * License: MIT
  */
