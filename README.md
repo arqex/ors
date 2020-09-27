@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ors.svg)](https://www.npmjs.com/package/ors) [![Build Status](https://secure.travis-ci.org/arqex/ors.svg)](https://secure.travis-ci.org/arqex/ors) [![Coverage Status](https://coveralls.io/repos/github/arqex/ors/badge.svg?branch=master)](https://coveralls.io/github/arqex/ors?branch=master)
 
-The Observable Regenerating Store is a tree data structure that emits events on updates, even if the change happens in one of the leaves, making easier to thing in a reactive way.
+The Observable Regenerating Store is a tree data structure that emits events when it's updated, even if the change happens in one of the leaves, making easier to think in a reactive way.
 
 An *ORS* can be read or updated like any JS object:
 ```js
@@ -19,6 +19,7 @@ store.addChangeListener( () => console.log('Changed') );
 
 store.people.alice.age = 23; // Will print 'Changed' in the console!
 ```
+[See this example working](https://codesandbox.io/s/cool-chatelet-njg9j?file=/src/index.js)
 
 ORS is intended to be the single store where centralize all the data of a JavaScript application, it's the simplest way of manage the state: Just use it and listen to changes to update your UI. See how it works.
 
@@ -64,6 +65,7 @@ store.people.bob.age = 39;
 // > 'Bob updated'
 // > 'Store updated'
 ```
+[See this example working](https://codesandbox.io/s/elated-golick-05mvw?file=/src/index.js)
 
 ## How does ORS work?
 
