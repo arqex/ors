@@ -441,6 +441,40 @@ describe( "ors", function(){
 			
 			expect(count).toBe(8);
 		});
+
+		it("Adding objects to the root should trigger events in the root", done => {
+			let listener = jest.fn();
+			os.addChangeListener( listener );
+
+			os.obj1 = {};
+			os.obj2 = {};
+
+			setTimeout( () => {
+				os.obj2.foo = 'bar';
+			}, 100);
+
+			setTimeout( () => {
+				expect( listener ).toHaveBeenCalledTimes( 2 );
+				done();
+			}, 200);
+		});
+		
+		it("Adding objects to a branch should trigger events in the root", done => {
+			let listener = jest.fn();
+			os.addChangeListener( listener );
+
+			os.b.obj1 = {};
+			os.b.obj2 = {};
+
+			setTimeout( () => {
+				os.b.obj2.foo = 'bar';
+			}, 100);
+
+			setTimeout( () => {
+				expect( listener ).toHaveBeenCalledTimes( 2 );
+				done();
+			}, 200);
+		});
 	});
 	
 	describe('internals', () => {
@@ -490,6 +524,21 @@ describe( "ors", function(){
 				done();
 			});
 		});
+
+		it('Updated nodes should point to the new parent', done => {
+			let osb = os.b;
+			let osbx = os.b.x;
+
+			os.addChangeListener( () => {
+				expect( os.b ).not.toBe( osb );
+				expect( os.b.x ).toBe( osbx );
+				expect( os.b.w.__.parents.has( os.b.__ ) ).toBe( true );
+				expect( os.b.x.__.parents.has( os.b.__ ) ).toBe( true );
+				done();
+			});
+
+			os.b.w = {foo: 'bar'};
+		})
 	});
 
 	describe('array methods', () => {

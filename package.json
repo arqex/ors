@@ -1,6 +1,6 @@
 {
   "name": "@arqex/ors",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "The eventful state holder",
   "main": "src/ors.js",
   "scripts": {

@@ -1,4 +1,4 @@
-/* @arqex/ors v0.8.0 (2020-9-26)
+/* @arqex/ors v0.9.0 (2020-11-8)
  * https://github.com/arqex/ors
  * By Javier Marquez - javi@arqex.com
  * License: MIT
@@ -152,6 +152,9 @@ function updateRoot(root){
       root[ key ] = nextNode;
       nextNode.emitChange( nextNode );
     }
+    else if( isOrs( child ) && !child.__.parents.has( root.__ ) ){
+      child.__.parents.add( root.__ );
+    }
   });
 
   root.__.dirty = false;
@@ -169,6 +172,7 @@ function cleanNode( node ) {
       nextChild.emitChange( nextChild );
     }
     else {
+      transferProps( child, child, node, nextNode );
       nextNode[key] = child;
     }
   });
